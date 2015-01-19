@@ -1,0 +1,27 @@
+[user]
+	name = rdlester
+	email = sursiks.010@gmail.com
+[core]
+	editor = /usr/local/bin/vim
+[alias]
+	new = "!f() { git cd master && git checkout -b $1; }; f"
+	del = branch -D
+	cd = checkout
+	ls = branch
+	p = status
+	s = status -s -b
+	fix = rebase --whitespace=fix HEAD~1
+	ca = "!f() { git commit -a -m \"$1\" && git fix; }; f"
+	cad = "!f() { git commit -a -m 'done' && git fix; }; f"
+	cal = "!f() { git commit -a -m 'lint' && git fix; }; f"
+	car = "!f() { git commit -a -m 'rev' && git fix; }; f"
+	save = stash save
+	pop = stash pop
+	undo = reset --hard HEAD
+	rollback = reset --hard HEAD^
+	d = diff
+	diffp = diff HEAD^ HEAD
+[push]
+	default = matching
+[credential]
+	helper = osxkeychain

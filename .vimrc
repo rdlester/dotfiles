@@ -1,225 +1,78 @@
 " required by vundle
 set nocompatible
+
+" toggle filetype to fix exit code.
+filetype on
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=/usr/local/lib/python3.4/site-packages/powerline/bindings/vim/
-call vundle#begin()
 
 """""""""""""""
 " START PLUGINS
 
-" Manage vundle, required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
 Plugin 'gmarik/Vundle.vim'
+
+" Powerline
+let powerline_subpath = "/lib/python3.4/site-packages/powerline/bindings/vim/"
+let powerline_rtp = substitute(system("brew --prefix"), "\n", "", "") . powerline_subpath
+let &rtp = &rtp . "," . powerline_rtp
 
 " Color scheme
 Plugin 'altercation/vim-colors-solarized.git'
 
-" git wrapper
+" git
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
-" Autocomplete!!!
+" Completion
 Plugin 'Valloric/YouCompleteMe'
-" JS Autocomplete
 Plugin 'marijnh/tern_for_vim'
-
-" Snippets for Autocomplete
-Plugin 'SirVer/ultisnips'
-" Default snippets
-Plugin 'honza/vim-snippets'
-
-" improved motions
-Plugin 'Lokaltog/vim-easymotion'
-
-" Goto file command
-Plugin 'ctrlpvim/ctrlp.vim'
-
-" File browser
-Plugin 'scrooloose/nerdtree'
-
-" Autoclose brackets, etc
-Plugin 'Raimondi/delimitMate'
-
-" Linter
+Plugin 'eagletmt/neco-ghc'
 Plugin 'scrooloose/syntastic'
 
-" do repeats with plugin commands
+" Snippets
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+" Motions
+Plugin 'rizzatti/dash.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-
-" Tab alignment
 Plugin 'tpope/vim-sleuth'
-
-" Match more stuff with %
 Plugin 'matchit.zip'
 
-" auto-navigate btw functions / vars
-Plugin 'majutsushi/tagbar'
-
-" ack
-Plugin 'mileszs/ack.vim'
-
-" comment out lines
-Plugin 'tomtom/tcomment_vim'
-
-" Modify surrounding chars easily
-Plugin 'tpope/vim-surround'
-
-" Auto-open docs with gK!
-Plugin 'Keithbsmiley/investigate.vim'
-
-" Undo tree
+" file search / opening
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'JazzCore/ctrlp-cmatcher'
+Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
-
-" Buffer explorer
 Plugin 'jeetsukumaran/vim-buffergator'
-
-" Limit editable region in file using :NR
 Plugin 'chrisbra/NrrwRgn'
-
-" ios-specific stuff
-Plugin 'eraserhd/vim-ios'
-Plugin 'msanders/cocoa.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'mileszs/ack.vim'
 
 " haskell specific stuff
 Plugin 'bitc/vim-hdevtools'
-Plugin 'eagletmt/neco-ghc'
 Plugin 'dag/vim2hs'
-
-"""""""""""""
-" END PLUGINS
 
 " required for vundle
 call vundle#end()
 filetype plugin indent on
 
-"""""""""""""""""""""""""
-" START PERSONAL SETTINGS
+"""""""""""""""""""
+" PERSONAL SETTINGS
 
-"Change cursor shape on insert / normal.
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"""""""""""""
+" KEYBINDINGS
 
-" Default file to use for autocomplete
-let g:ycm_global_ycm_extra_conf = '~/.ycm_global_ycm_extra_conf.py'
-
-" Powerline
-let g:Powerline_symbols = 'unicode'
-set laststatus=2 "Keeps powerline on screen
-set noshowmode "Get rid of default vim mode display
-set encoding=utf-8
-
-" Colorscheme
-syntax enable
-set background=light
-let g:solarized_termcolors=16
-set t_Co=256
-colorscheme solarized
-
-" YCM
-" append objc and objcpp to default blacklist until YCM fixes objc
-" autocorrect; use clang-complete in the meantime
-let g:ycm_semantic_triggers = {'haskell': ['.']}
-let g:ycm_key_list_previous_completion=['<Up>']
-
-" UltiSnips
-let g:UltiSnipsSnippetDirectories=['/Users/lester/.vim/bundle/vim-snippets/UltiSnips']
-
-" Tagbar
-nmap <F8> :TagbarToggle<CR>
-let g:tagbar_type_objc = {
-  \ 'ctagstype': 'objc',
-  \ 'ctagsargs': [
-    \ '-f',
-    \ '-',
-    \ '--excmd=pattern',
-    \ '--extra=',
-    \ '--format=2',
-    \ '--fields=nksaSmt',
-    \ '--options=' . expand('~/.vim/objc-tag-defs'),
-    \ '--objc-kinds=-N',
-  \ ],
-  \ 'sro': ' ',
-  \ 'kinds': [
-    \ 'c:constant',
-    \ 'e:enum',
-    \ 't:typedef',
-    \ 'i:interface',
-    \ 'P:protocol',
-    \ 'p:property',
-    \ 'I:implementation',
-    \ 'M:method',
-    \ 'g:pragma',
-  \ ],
-  \ }
-let g:tagbar_type_objcpp = {
-  \ 'ctagstype': 'objcpp',
-  \ 'ctagsargs': [
-    \ '-f',
-    \ '-',
-    \ '--excmd=pattern',
-    \ '--extra=',
-    \ '--format=2',
-    \ '--fields=nksaSmt',
-    \ '--options=' . expand('~/.vim/objc-tag-defs'),
-    \ '--objc-kinds=-N',
-  \ ],
-  \ 'sro': ' ',
-  \ 'kinds': [
-    \ 'c:constant',
-    \ 'e:enum',
-    \ 't:typedef',
-    \ 'i:interface',
-    \ 'P:protocol',
-    \ 'p:property',
-    \ 'I:implementation',
-    \ 'M:method',
-    \ 'g:pragma',
-  \ ],
-  \ }
-
-" NERDTree
-map <F5> :NERDTreeToggle<CR>
-
-" Haskell
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
-let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
-
-" Various other settings
-set viminfo='50,<1000,:100,n~/.vim/viminfo
-set backspace=indent,eol,start
-set smarttab
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=0
-set number
-set relativenumber
-set noerrorbells
-set ruler
-set showcmd
-set switchbuf=useopen,usetab,split
-set foldenable
-set foldmethod=syntax
-set foldlevelstart=99
-let g:xml_syntax_folding=1
-
-" Yank automatically to system clipboard.
-set clipboard=unnamed
-
-set history=50		" keep 50 lines of command line history
-set autoindent		" always set autoindenting on
-
-" MOUSE
-set mouse=a
-
-""""""""""""""""""""
-" Custom keybindings
-
-" Fast escapes
 inoremap <C-f> <Esc>
+let mapleader=','
 
-" EasyMotion search
+" Easymotion bindings
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
 map / <Plug>(easymotion-sn)
@@ -228,8 +81,95 @@ map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
 set nohlsearch " EasyMotion search has better highlighting
 
+" Dash
+nmap <silent> <leader>d <Plug>(DashSearch)
+
+""""""""""""
+" APPEARANCE
+
+"Change cursor shape on insert / normal.
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" Colorscheme
+syntax enable
+set background=light
+let g:solarized_termcolors=16
+set t_Co=256
+colorscheme solarized
+
+"""""""""
+" GENERAL
+
+set viminfo='50,<1000,:100,n~/.vim/viminfo
+set history=50
+set switchbuf=useopen,usetab,split
+
+set backspace=indent,eol,start
+set clipboard=unnamed
+
+set smarttab
+set expandtab
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=0
+
+set number
+set relativenumber
+set ruler
+set showcmd
+
+set foldenable
+set foldmethod=syntax
+set foldlevelstart=99
+let g:xml_syntax_folding=1
+
+set mouse=a
+
+"""""""""""""""
+" PLUGIN CONFIG
+
+"""""""""""
+" Powerline
+let g:Powerline_symbols = 'unicode'
+set laststatus=2 "Keeps powerline on screen
+set noshowmode "Get rid of default vim mode display
+set encoding=utf-8
+
+"""""
+" YCM
+let g:ycm_semantic_triggers = {'haskell': [' ']}
+let g:ycm_key_list_previous_completion=['<Up>']
+
+"""""""""""
+" UltiSnips
+let g:UltiSnipsSnippetDirectories=['~/.vim/bundle/vim-snippets/UltiSnips']
+
+""""""""
+" Ctrl-p
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
+
+""""""""
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
+""""""""""
+" NERDTree
+map <F5> :NERDTreeToggle<CR>
+
+"""""""""
+" Haskell
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
+
+" Various other settings
+
 """"""""""""""
-" Autocommands
+" AUTOCOMMANDS
 
 augroup vimrcEx
   au!

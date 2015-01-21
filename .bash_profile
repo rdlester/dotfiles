@@ -1,5 +1,5 @@
-PATH=$PATH:/usr/local/sbin:/usr/local/share/npm/bin:/Users/Ryan/.cabal/bin
-export PATH
+# Source computer-specific profile first to set up PATH and such.
+source ~/.comp_bash_profile
 
 powerline-daemon -q
 . $(brew --prefix)/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh

@@ -85,6 +85,7 @@ set nohlsearch " EasyMotion search has better highlighting
 nmap <silent> <leader>d <Plug>(DashSearch)
 
 " tcomment
+map <C-/> :TComment<CR> " Have to press this twice?
 map <Leader>/ :TComment<CR>
 
 """"""""""""

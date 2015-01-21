@@ -11,4 +11,28 @@ bind "set completion-ignore-case on"
 
 [[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
 
+alias reload="source ~/.bash_profile"
+
 alias bup="brew update; brew upgrade; cabal update; vim +VundleUpdate;"
+
+alias ls="ls -G"
+alias la="ls -AF"
+
+alias c="clear"
+alias clr="clear"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias -- -='cd -'
+
+alias h="history"
+alias hag="history | ag"
+
+alias ffind="find . -iname"
+
+alias md="mkdir -p"
+alias mkdir="mkdir -p"
+alias rd="rmdir"
+
+alias _="sudo"

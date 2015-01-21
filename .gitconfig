@@ -22,6 +22,6 @@
 	d = diff
 	diffp = diff HEAD^ HEAD
 [push]
-	default = matching
+	default = simple
 [credential]
 	helper = osxkeychain

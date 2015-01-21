@@ -84,6 +84,9 @@ set nohlsearch " EasyMotion search has better highlighting
 " Dash
 nmap <silent> <leader>d <Plug>(DashSearch)
 
+" tcomment
+map <Leader>/ :TComment<CR>
+
 """"""""""""
 " APPEARANCE
 

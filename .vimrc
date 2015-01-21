@@ -53,7 +53,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'chrisbra/NrrwRgn'
 Plugin 'majutsushi/tagbar'
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 
 " haskell specific stuff
 Plugin 'bitc/vim-hdevtools'

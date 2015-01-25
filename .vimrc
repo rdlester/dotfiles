@@ -44,6 +44,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sleuth'
 Plugin 'matchit.zip'
+Plugin 'terryma/vim-multiple-cursors'
 
 " file search / opening
 Plugin 'ctrlpvim/ctrlp.vim'

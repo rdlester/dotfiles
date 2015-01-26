@@ -73,6 +73,12 @@ filetype plugin indent on
 inoremap <C-f> <Esc>
 let mapleader=','
 
+" tab navigatin
+noremap <C-t><C-t> :tabnew<CR>
+noremap <C-t>j :tabnext<CR>
+noremap <C-t>k :tabprevious<CR>
+noremap <C-t>q :tabclose<CR>
+
 " Easymotion bindings
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)

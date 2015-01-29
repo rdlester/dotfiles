@@ -193,8 +193,6 @@ augroup vimrcEx
 	\   exe "normal! g`\"" |
 	\ endif
 
-  autocmd FileChangedRO * ! p4 edit <afile>
-
 augroup END
 
 

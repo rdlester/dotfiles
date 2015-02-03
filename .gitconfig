@@ -1,8 +1,6 @@
 [user]
 	name = rdlester
 	email = sursiks.010@gmail.com
-[core]
-	editor = /usr/local/bin/vim
 [alias]
 	new = "!f() { git cd master && git checkout -b $1; }; f"
 	del = branch -D

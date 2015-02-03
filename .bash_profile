@@ -11,6 +11,9 @@ bind "set completion-ignore-case on"
 
 [[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
 
+export EDITOR="vim"
+export GIT_EDITOR="vim"
+
 alias reload="source ~/.bash_profile"
 
 alias bup="brew update; brew upgrade; cabal update; vim +VundleUpdate;"

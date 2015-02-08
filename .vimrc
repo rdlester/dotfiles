@@ -59,6 +59,8 @@ Plugin 'rking/ag.vim'
 " haskell specific stuff
 Plugin 'bitc/vim-hdevtools'
 Plugin 'dag/vim2hs'
+Plugin 'bitc/lushtags'
+Plugin 'enomsg/vim-haskellConcealPlus'
 
 " required for vundle
 call vundle#end()
@@ -125,6 +127,7 @@ set autoindent
 set tabstop=2
 set shiftwidth=2
 set softtabstop=0
+set breakindent
 
 set number
 set relativenumber
@@ -150,7 +153,6 @@ set encoding=utf-8
 
 """""
 " YCM
-let g:ycm_semantic_triggers = {'haskell': [' ']}
 let g:ycm_key_list_previous_completion=['<Up>']
 
 """""""""""
@@ -175,6 +177,8 @@ map <F5> :NERDTreeToggle<CR>
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+au FileType haskell setlocal omnifunc=necoghc#omnifunc
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
 let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
 
 """"""""""""""

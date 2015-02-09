@@ -62,6 +62,8 @@ Plugin 'dag/vim2hs'
 Plugin 'bitc/lushtags'
 Plugin 'enomsg/vim-haskellConcealPlus'
 
+Plugin 'jdevera/vim-protobuf-syntax'
+
 " required for vundle
 call vundle#end()
 filetype plugin indent on

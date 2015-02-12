@@ -19,6 +19,12 @@
 	rollback = reset --hard HEAD^
 	d = diff
 	diffp = diff HEAD^ HEAD
+	r = rebase master
+	m = merge master
+	ff = "!f() { git fetch origin && git rebase origin/master; }; f"
+	ffm = "!f() { git fetch origin && git merge origin/master; }; f"
+	f = "!f() { currentHead=$(git symbolic-ref --short -q HEAD) ; if [ \"$currentHead\" == \"master\" ]; then git ff; else git cd master && git ff && git cd $currentHead && git r; }; f"
+	fm = "!f() { currentHead=$(git symbolic-ref --short -q HEAD) ; if [ \"$currentHead\" == \"master\" ]; then git ffm; else git cd master && git ffm && git cd $currentHead && git m; }; f"
 [push]
 	default = simple
 [credential]

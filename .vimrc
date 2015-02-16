@@ -36,7 +36,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " Motions
-Plugin 'rizzatti/dash.vim'
+Plugin 'Keithbsmiley/investigate.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'Raimondi/delimitMate'
@@ -76,6 +76,7 @@ filetype plugin indent on
 
 inoremap <C-f> <Esc>
 let mapleader=','
+map <Space> <Leader>
 
 " tab navigatin
 noremap <C-t><C-t> :tabnew<CR>
@@ -85,19 +86,38 @@ noremap <C-t>q :tabclose<CR>
 
 " Easymotion bindings
 nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
 map / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
 set nohlsearch " EasyMotion search has better highlighting
 
-" Dash
-nmap <silent> <leader>d <Plug>(DashSearch)
-
 " tcomment
-map <C-/> :TComment<CR> " Have to press this twice?
 map <Leader>/ :TComment<CR>
+
+" Dash
+noremap <Leader>d :call investigate#Investigate()<CR>
+
+" NERDTree
+noremap <Leader>tt :NERDTreeToggle<CR>
+
+" Gundo
+noremap <Leader>u :GundoToggle<CR>
+
+" Ag
+noremap <Leader>a :Ag<Space>
+
+" Quickfix / location list
+noremap <Leader>c :copen<CR>
+
+" plugin binding ref:
+" vim-multiple-cursors - <C-n>
+" buffergator - <Leader>b on buffers, <Leader>t on tabs
+" NrrwRgn - :NR or <Leader>nr in visual mode
+" ag.vim - :Ag
+" surround - ds{remove}, cs{remove}{replace}, ys{motion}{add}, vS
+" 	valid targets include (/"/etc, t (XML tags), w/W/s/p
+" 	(word,sentence,paragraph)
 
 """"""""""""
 " APPEARANCE

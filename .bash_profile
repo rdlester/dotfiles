@@ -39,3 +39,5 @@ alias mkdir="mkdir -p"
 alias rd="rmdir"
 
 alias _="sudo"
+
+alias py="python3 -m"

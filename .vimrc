@@ -62,6 +62,15 @@ Plugin 'dag/vim2hs'
 Plugin 'bitc/lushtags'
 Plugin 'enomsg/vim-haskellConcealPlus'
 
+" clojure
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-sexp'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'tpope/vim-fireplace' " Remember to set up cider/cider-nrepl in lein
+Plugin 'tpope/vim-leiningen'
+Plugin 'guns/vim-clojure-highlight'
+
 Plugin 'jdevera/vim-protobuf-syntax'
 
 " required for vundle
@@ -118,6 +127,10 @@ noremap <Leader>c :copen<CR>
 " surround - ds{remove}, cs{remove}{replace}, ys{motion}{add}, vS
 " 	valid targets include (/"/etc, t (XML tags), w/W/s/p
 " 	(word,sentence,paragraph)
+" vim-sexp-regular-ppl - word motions -> element. >/< + f move form, e move
+" 	elem, )/( to slurp/barf, I to insert at start/end of form. dsf delete
+" 	surroundings of form, cse+paren/brace/bracket to surround element in
+" 	that.
 
 """"""""""""
 " APPEARANCE

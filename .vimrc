@@ -26,6 +26,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
 " Completion
+Plugin 'ervandew/supertab'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'eagletmt/neco-ghc'
@@ -56,7 +57,10 @@ Plugin 'chrisbra/NrrwRgn'
 Plugin 'majutsushi/tagbar'
 Plugin 'rking/ag.vim'
 
-" haskell specific stuff
+" HTML
+Plugin 'mattn/emmet-vim'
+
+" haskell
 Plugin 'bitc/vim-hdevtools'
 Plugin 'dag/vim2hs'
 Plugin 'bitc/lushtags'
@@ -71,6 +75,7 @@ Plugin 'tpope/vim-fireplace' " Remember to set up cider/cider-nrepl in lein
 Plugin 'tpope/vim-leiningen'
 Plugin 'guns/vim-clojure-highlight'
 
+" extra syntax
 Plugin 'jdevera/vim-protobuf-syntax'
 
 " required for vundle
@@ -101,14 +106,23 @@ map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
 set nohlsearch " EasyMotion search has better highlighting
 
+" Configure YCM to play nice with Ultisnips
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+let g:UltiSnipsExpandTrigger = '<Tab>'
+let g:UltiSnipsJumpForwardTrigger = '<Tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+
 " tcomment
-map <Leader>/ :TComment<CR>
+noremap <Leader>/ :TComment<CR>
 
 " Dash
 noremap <Leader>d :call investigate#Investigate()<CR>
 
 " NERDTree
-noremap <Leader>tt :NERDTreeToggle<CR>
+noremap <Leader>f :NERDTreeToggle<CR>
 
 " Gundo
 noremap <Leader>u :GundoToggle<CR>
@@ -131,6 +145,7 @@ noremap <Leader>c :copen<CR>
 " 	elem, )/( to slurp/barf, I to insert at start/end of form. dsf delete
 " 	surroundings of form, cse+paren/brace/bracket to surround element in
 " 	that.
+" emmet - <C-y>, to expand.
 
 """"""""""""
 " APPEARANCE
@@ -176,6 +191,9 @@ let g:xml_syntax_folding=1
 
 set mouse=a
 
+set ssop-=options
+set ssop-=folds
+
 """""""""""""""
 " PLUGIN CONFIG
 
@@ -206,6 +224,11 @@ nmap <F8> :TagbarToggle<CR>
 """"""""""
 " NERDTree
 map <F5> :NERDTreeToggle<CR>
+
+"""""""
+" Emmet
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 """""""""
 " Haskell

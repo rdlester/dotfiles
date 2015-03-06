@@ -18,6 +18,9 @@ let powerline_subpath = "/lib/python3.4/site-packages/powerline/bindings/vim/"
 let powerline_rtp = substitute(system("brew --prefix"), "\n", "", "") . powerline_subpath
 let &rtp = &rtp . "," . powerline_rtp
 
+" Startup / session helper
+Plugin 'mhinz/vim-startify'
+
 " Color scheme
 Plugin 'altercation/vim-colors-solarized.git'
 

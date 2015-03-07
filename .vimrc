@@ -136,6 +136,9 @@ noremap <Leader>a :Ag<Space>
 " Quickfix / location list
 noremap <Leader>c :copen<CR>
 
+" fireplace
+noremap <Leader>e :Eval<CR>
+
 " plugin binding ref:
 " vim-multiple-cursors - <C-n>
 " buffergator - <Leader>b on buffers, <Leader>t on tabs

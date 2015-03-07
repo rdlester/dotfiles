@@ -29,7 +29,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
 " Completion
-Plugin 'ervandew/supertab'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'eagletmt/neco-ghc'
@@ -112,7 +111,6 @@ set nohlsearch " EasyMotion search has better highlighting
 " Configure YCM to play nice with Ultisnips
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
 
 let g:UltiSnipsExpandTrigger = '<Tab>'
 let g:UltiSnipsJumpForwardTrigger = '<Tab>'
@@ -138,6 +136,7 @@ noremap <Leader>c :copen<CR>
 
 " fireplace
 noremap <Leader>e :Eval<CR>
+noremap <Leader>E :%Eval<CR>
 
 " plugin binding ref:
 " vim-multiple-cursors - <C-n>

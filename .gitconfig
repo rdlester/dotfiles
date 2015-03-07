@@ -23,8 +23,8 @@
 	m = merge master
 	upbase = "!f() { git fetch origin && git rebase origin/master; }; f"
 	upbasem = "!f() { git fetch origin && git merge origin/master; }; f"
-	up = "!f() { currentHead=$(git symbolic-ref --short -q HEAD) ; if [ \"$currentHead\" == \"master\" ]; then git ff; else git cd master && git ff && git cd $currentHead && git r; }; f"
-	upm = "!f() { currentHead=$(git symbolic-ref --short -q HEAD) ; if [ \"$currentHead\" == \"master\" ]; then git ffm; else git cd master && git ffm && git cd $currentHead && git m; }; f"
+	up = "!f() { currentHead=$(git symbolic-ref --short -q HEAD) ; if [ \"$currentHead\" == \"master\" ]; then git upbase; else git cd master && git upbase && git cd $currentHead && git r; }; f"
+	upm = "!f() { currentHead=$(git symbolic-ref --short -q HEAD) ; if [ \"$currentHead\" == \"master\" ]; then git upbasem; else git cd master && git upbasem && git cd $currentHead && git m; }; f"
 [push]
 	default = simple
 [credential]

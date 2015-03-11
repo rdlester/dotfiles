@@ -116,22 +116,13 @@ let g:UltiSnipsExpandTrigger = '<Tab>'
 let g:UltiSnipsJumpForwardTrigger = '<Tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 
-" tcomment
+" Submenus
 noremap <Leader>/ :TComment<CR>
-
-" Dash
 noremap <Leader>d :call investigate#Investigate()<CR>
-
-" NERDTree
 noremap <Leader>f :NERDTreeToggle<CR>
-
-" Gundo
+noremap <Leader>o :TagbarToggle<CR>
 noremap <Leader>u :GundoToggle<CR>
-
-" Ag
 noremap <Leader>a :Ag<Space>
-
-" Quickfix / location list
 noremap <Leader>c :copen<CR>
 
 " fireplace
@@ -209,10 +200,6 @@ set laststatus=2 "Keeps powerline on screen
 set noshowmode "Get rid of default vim mode display
 set encoding=utf-8
 
-"""""
-" YCM
-let g:ycm_key_list_previous_completion=['<Up>']
-
 """""""""""
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=['~/.vim/bundle/vim-snippets/UltiSnips']
@@ -221,14 +208,6 @@ let g:UltiSnipsSnippetDirectories=['~/.vim/bundle/vim-snippets/UltiSnips']
 " Ctrl-p
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
-
-""""""""
-" Tagbar
-nmap <F8> :TagbarToggle<CR>
-
-""""""""""
-" NERDTree
-map <F5> :NERDTreeToggle<CR>
 
 """""""
 " Emmet

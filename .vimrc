@@ -167,6 +167,8 @@ set switchbuf=useopen,usetab,split
 set backspace=indent,eol,start
 set clipboard=unnamed
 
+set ignorecase
+
 set smarttab
 set expandtab
 set autoindent

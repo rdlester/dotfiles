@@ -20,6 +20,7 @@ alias bup="brew update; brew upgrade; vim +VundleUpdate;"
 
 alias ls="ls -G"
 alias la="ls -AF"
+alias ll="ls -l"
 
 alias c="clear"
 alias clr="clear"

@@ -16,7 +16,7 @@ export GIT_EDITOR="vim"
 
 alias reload="source ~/.bash_profile"
 
-alias bup="brew update; brew upgrade; vim +VundleUpdate;"
+alias bup="brew update; brew upgrade --all; vim +VundleUpdate;"
 
 alias ls="ls -G"
 alias la="ls -AF"

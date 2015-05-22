@@ -1,15 +1,17 @@
 # Source computer-specific profile first to set up PATH and such.
 source ~/.comp_bash_profile
 
-powerline-daemon -q
-. $(brew --prefix)/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
-
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 bind "set completion-ignore-case on"
 
 [[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
+
+powerline-daemon -q
+. $(brew --prefix)/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
+
+set -o vi
 
 export EDITOR="vim"
 export GIT_EDITOR="vim"

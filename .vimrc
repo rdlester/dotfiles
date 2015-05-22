@@ -18,6 +18,9 @@ let powerline_subpath = "/lib/python3.4/site-packages/powerline/bindings/vim/"
 let powerline_rtp = substitute(system("brew --prefix"), "\n", "", "") . powerline_subpath
 let &rtp = &rtp . "," . powerline_rtp
 
+" Utilities
+Plugin 'kana/vim-operator-user'
+
 " Startup / session helper
 Plugin 'mhinz/vim-startify'
 
@@ -59,6 +62,12 @@ Plugin 'chrisbra/NrrwRgn'
 Plugin 'majutsushi/tagbar'
 Plugin 'rking/ag.vim'
 
+" C / C++ / Objc
+Plugin 'rhysd/vim-clang-format'
+
+" Objc
+Plugin 'b4winckler/vim-objc'
+
 " HTML
 Plugin 'mattn/emmet-vim'
 
@@ -77,7 +86,7 @@ Plugin 'tpope/vim-fireplace' " Remember to set up cider/cider-nrepl in lein
 Plugin 'tpope/vim-leiningen'
 Plugin 'guns/vim-clojure-highlight'
 
-" extra syntax
+" Protobuf
 Plugin 'jdevera/vim-protobuf-syntax'
 
 " required for vundle
@@ -210,6 +219,15 @@ let g:UltiSnipsSnippetDirectories=['~/.vim/bundle/vim-snippets/UltiSnips']
 " Ctrl-p
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ --ignore .git5_specs
+      \ --ignore review
+      \ -g ""'
 
 """""""
 " Emmet

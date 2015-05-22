@@ -9,7 +9,7 @@
 	p = status
 	s = status -s -b
 	fix = rebase --whitespace=fix HEAD~1
-	c = "!f() { git commit -m \"$1\" && git fix; }; f"
+	c = "!f() { git commit -m \"$1\" && git save && git fix && git pop; }; f"
 	ca = "!f() { git commit -a -m \"$1\" && git fix; }; f"
 	cad = "!f() { git commit -a -m 'done' && git fix; }; f"
 	cal = "!f() { git commit -a -m 'lint' && git fix; }; f"

@@ -6,12 +6,13 @@ filetype on
 filetype off
 
 """""""""""""""
-" START PLUGINS
+" START Plug
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if empty(glob("~/.vim/autoload/plug.vim"))
+  execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
 
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " Powerline
 let powerline_subpath = "/lib/python3.4/site-packages/powerline/bindings/vim/"
@@ -19,78 +20,87 @@ let powerline_rtp = substitute(system("brew --prefix"), "\n", "", "") . powerlin
 let &rtp = &rtp . "," . powerline_rtp
 
 " Utilities
-Plugin 'kana/vim-operator-user'
+Plug 'kana/vim-operator-user'
 
 " Startup / session helper
-Plugin 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 
 " Color scheme
-Plugin 'altercation/vim-colors-solarized.git'
+Plug 'altercation/vim-colors-solarized'
 
 " git
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Completion
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'eagletmt/neco-ghc'
-Plugin 'scrooloose/syntastic'
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.sh --clang-completer
+  endif
+endfunction
+Plug 'Valloric/YouCompleteMe', {'do': function('BuildYCM')}
+Plug 'marijnh/tern_for_vim', {'do': 'npm install; npm update'}
+Plug 'eagletmt/neco-ghc'
+Plug 'scrooloose/syntastic'
 
 " Snippets
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Motions
-Plugin 'Keithbsmiley/investigate.vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-sleuth'
-Plugin 'matchit.zip'
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'Keithbsmiley/investigate.vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'tomtom/tcomment_vim'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
+Plug 'matchit.zip'
+Plug 'terryma/vim-multiple-cursors'
 
 " file search / opening
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'JazzCore/ctrlp-cmatcher'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sjl/gundo.vim'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'chrisbra/NrrwRgn'
-Plugin 'majutsushi/tagbar'
-Plugin 'rking/ag.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'JazzCore/ctrlp-cmatcher', {'do': 'export CFLAGS=-Qunused-arguments; export CPPFLAGS=-Qunused-arguments; ./install.sh'}
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'sjl/gundo.vim'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'chrisbra/NrrwRgn'
+Plug 'majutsushi/tagbar'
+Plug 'rking/ag.vim'
 
 " C / C++ / Objc
-Plugin 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp', 'objc', 'objcpp']}
 
 " Objc
-Plugin 'b4winckler/vim-objc'
+Plug 'b4winckler/vim-objc', {'for': ['objc', 'objcpp']}
 
 " HTML
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
 " haskell
-Plugin 'bitc/vim-hdevtools'
-Plugin 'dag/vim2hs'
-Plugin 'bitc/lushtags'
-Plugin 'enomsg/vim-haskellConcealPlus'
+Plug 'raichoo/haskell-vim', {'for': 'haskell'}
+Plug 'bitc/vim-hdevtools', {'for': 'haskell'}
+Plug 'bitc/lushtags', {'for': 'haskell'}
+Plug 'enomsg/vim-haskellConcealPlus', {'for': 'haskell'}
 
 " clojure
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-sexp'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'tpope/vim-fireplace' " Remember to set up cider/cider-nrepl in lein
-Plugin 'tpope/vim-leiningen'
-Plugin 'guns/vim-clojure-highlight'
+Plug 'guns/vim-clojure-static', {'for': 'clojure'}
+Plug 'guns/vim-sexp', {'for': 'clojure'}
+Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
+Plug 'kien/rainbow_parentheses.vim', {'for': 'clojure'}
+Plug 'tpope/vim-fireplace', {'for': 'clojure'} " Remember to set up cider/cider-nrepl in lein
+Plug 'tpope/vim-leiningen', {'for': 'clojure'}
+Plug 'guns/vim-clojure-highlight', {'for': 'clojure'}
 
 " Protobuf
-Plugin 'jdevera/vim-protobuf-syntax'
+Plug 'jdevera/vim-protobuf-syntax'
 
 " required for vundle
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 """""""""""""""""""
@@ -151,6 +161,9 @@ noremap <Leader>E :%Eval<CR>
 " 	surroundings of form, cse+paren/brace/bracket to surround element in
 " 	that.
 " emmet - <C-y>, to expand.
+" TComment - <Leader>/
+" Dash - <Leader>d
+" NERDTree - <Leader>f
 
 """"""""""""
 " APPEARANCE
@@ -181,6 +194,7 @@ set ignorecase
 set smarttab
 set expandtab
 set autoindent
+set smartindent
 set tabstop=2
 set shiftwidth=2
 set softtabstop=0
@@ -200,6 +214,11 @@ set mouse=a
 
 set ssop-=options
 set ssop-=folds
+
+set wildmenu
+set wildmode=list:longest,full
+
+set lazyredraw
 
 """""""""""""""
 " PLUGIN CONFIG
@@ -229,6 +248,10 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore review
       \ -g ""'
 
+"""""""""""""
+" Investigate
+let g:investigate_use_dash=1
+
 """""""
 " Emmet
 let g:user_emmet_install_global = 0
@@ -240,8 +263,20 @@ au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
 au FileType haskell setlocal omnifunc=necoghc#omnifunc
-let g:ycm_semantic_triggers = {'haskell' : ['.']}
+let g:haskell_conceal_wide = 1
+let g:haskell_conceal_enumerations = 1
 let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
+let g:necoghc_enable_detailed_browse = 1
+
+function! FindCabalSandboxRoot()
+    return finddir('.cabal-sandbox', './;')
+endfunction
+
+function! FindCabalSandboxRootPackageConf()
+    return glob(FindCabalSandboxRoot().'/*-packages.conf.d')
+endfunction
+
+let g:hdevtools_options = '-g-ilib -g-isrc -g-i. -g-idist/build/autogen -g-Wall -g-package-conf='.FindCabalSandboxRootPackageConf()
 
 """"""""""""""
 " AUTOCOMMANDS

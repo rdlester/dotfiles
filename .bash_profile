@@ -8,6 +8,9 @@ bind "set completion-ignore-case on"
 
 [[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
 
+export THEFUCK_REQUIRE_CONFIRMATION='true'
+alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
+
 powerline-daemon -q
 . $(brew --prefix)/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
 

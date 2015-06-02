@@ -22,10 +22,10 @@
 	diffp = diff HEAD^ HEAD
 	r = rebase master
 	m = merge master
-	upbase = "!f() { git fetch origin && git rebase origin/master; }; f"
-	upbasem = "!f() { git fetch origin && git merge origin/master; }; f"
-	up = "!f() { currentHead=$(git symbolic-ref --short -q HEAD) ; if [ \"$currentHead\" == \"master\" ]; then git upbase; else git cd master && git upbase && git cd $currentHead && git r; }; f"
-	upm = "!f() { currentHead=$(git symbolic-ref --short -q HEAD) ; if [ \"$currentHead\" == \"master\" ]; then git upbasem; else git cd master && git upbasem && git cd $currentHead && git m; }; f"
+	upbase = "!f() { git save && git fetch origin && git rebase origin/master && git pop; }; f"
+	upbasem = "!f() { git save && git fetch origin && git merge origin/master && git pop; }; f"
+	up = "!f() { currentHead=$(git symbolic-ref --short -q HEAD) ; git save; if [ \"$currentHead\" == \"master\" ]; then git upbase; else git cd master && git upbase && git cd $currentHead && git r; git pop; }; f"
+	upm = "!f() { currentHead=$(git symbolic-ref --short -q HEAD) ; git save; if [ \"$currentHead\" == \"master\" ]; then git upbasem; else git cd master && git upbasem && git cd $currentHead && git m; git pop; }; f"
 [push]
 	default = simple
 [credential]

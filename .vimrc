@@ -99,6 +99,9 @@ Plug 'guns/vim-clojure-highlight', {'for': 'clojure'}
 " Protobuf
 Plug 'jdevera/vim-protobuf-syntax'
 
+" CSV
+Plug 'chrisbra/csv.vim'
+
 " required for vundle
 call plug#end()
 filetype plugin indent on

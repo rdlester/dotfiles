@@ -96,6 +96,9 @@ Plug 'tpope/vim-fireplace', {'for': 'clojure'} " Remember to set up cider/cider-
 Plug 'tpope/vim-leiningen', {'for': 'clojure'}
 Plug 'guns/vim-clojure-highlight', {'for': 'clojure'}
 
+" python
+Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
+
 " Protobuf
 Plug 'jdevera/vim-protobuf-syntax'
 

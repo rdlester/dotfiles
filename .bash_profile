@@ -14,8 +14,6 @@ alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 powerline-daemon -q
 . $(brew --prefix)/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
 
-set -o vi
-
 export EDITOR="vim"
 export GIT_EDITOR="vim"
 

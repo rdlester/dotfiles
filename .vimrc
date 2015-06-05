@@ -15,9 +15,11 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Powerline
-let powerline_subpath = "/lib/python3.4/site-packages/powerline/bindings/vim/"
-let powerline_rtp = substitute(system("brew --prefix"), "\n", "", "") . powerline_subpath
-let &rtp = &rtp . "," . powerline_rtp
+" let powerline_subpath = "/lib/python3.4/site-packages/powerline/bindings/vim/"
+" let powerline_rtp = substitute(system("brew --prefix"), "\n", "", "") . powerline_subpath
+" let &rtp = &rtp . "," . powerline_rtp
+
+Plug 'bling/vim-airline'
 
 " Utilities
 Plug 'kana/vim-operator-user'
@@ -231,7 +233,9 @@ set lazyredraw
 
 """""""""""
 " Powerline
-let g:Powerline_symbols = 'unicode'
+" let g:Powerline_symbols = 'unicode'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'solarized'
 set laststatus=2 "Keeps powerline on screen
 set noshowmode "Get rid of default vim mode display
 set encoding=utf-8
@@ -291,6 +295,10 @@ endfunction
 
 let g:syntastic_haskell_hdevtools_args = '-g-ilib -g-isrc -g-i. -g-idist/build/autogen -g-Wall -g-package-conf='.FindCabalSandboxRootPackageConf()
 
+"""""""
+" Eclim
+let g:EclimCompletionMethod = 'omnifunc'
+
 """"""""""""""
 " AUTOCOMMANDS
 
@@ -315,5 +323,5 @@ augroup END
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+	\ | wincmd p | diffthis
 endif

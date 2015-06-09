@@ -100,6 +100,7 @@ Plug 'guns/vim-clojure-highlight', {'for': 'clojure'}
 
 " python
 Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
+Plug 'ivanov/vim-ipython', {'for': 'python'}
 
 " Protobuf
 Plug 'jdevera/vim-protobuf-syntax'

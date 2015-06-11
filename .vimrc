@@ -73,6 +73,7 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'chrisbra/NrrwRgn'
 Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
+Plug 'vim-scripts/a.vim'
 
 " C / C++ / Objc
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp', 'objc', 'objcpp']}

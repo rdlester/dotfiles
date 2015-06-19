@@ -24,9 +24,6 @@ Plug 'bling/vim-airline'
 " Utilities
 Plug 'kana/vim-operator-user'
 
-" Startup / session helper
-Plug 'mhinz/vim-startify'
-
 " Color scheme
 Plug 'altercation/vim-colors-solarized'
 

@@ -6,3 +6,5 @@ rm ~/.tmux.conf
 ln .tmux.conf ~/.tmux.conf
 rm ~/.vimrc
 ln .vimrc ~/.vimrc
+rm ~/.zshrc
+ln .zshrc ~/.zshrc

@@ -14,11 +14,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Powerline
-" let powerline_subpath = "/lib/python3.4/site-packages/powerline/bindings/vim/"
-" let powerline_rtp = substitute(system("brew --prefix"), "\n", "", "") . powerline_subpath
-" let &rtp = &rtp . "," . powerline_rtp
-
 Plug 'bling/vim-airline'
 
 " Utilities
@@ -72,6 +67,12 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
 Plug 'vim-scripts/a.vim'
+
+" sessions
+Plug 'tpope/vim-obsession'
+
+" editor help
+Plug 'ntpeters/vim-better-whitespace'
 
 " C / C++ / Objc
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp', 'objc', 'objcpp']}
@@ -147,10 +148,12 @@ let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 noremap <Leader>/ :TComment<CR>
 noremap <Leader>d :call investigate#Investigate()<CR>
 noremap <Leader>f :NERDTreeToggle<CR>
-noremap <Leader>o :TagbarToggle<CR>
+noremap <Leader>m :TagbarOpenAutoClose<CR>
 noremap <Leader>u :GundoToggle<CR>
 noremap <Leader>a :Ag<Space>
 noremap <Leader>c :copen<CR>
+noremap <Leader>b :MBEToggle<CR>
+noremap <Leader>p :CtrlPBuffer<CR>
 
 " fireplace
 noremap <Leader>e :Eval<CR>
@@ -229,12 +232,13 @@ set wildmode=list:longest,full
 
 set lazyredraw
 
+set completeopt-=preview
+
 """""""""""""""
 " PLUGIN CONFIG
 
 """""""""""
-" Powerline
-" let g:Powerline_symbols = 'unicode'
+" airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'solarized'
 set laststatus=2 "Keeps powerline on screen
@@ -243,7 +247,7 @@ set encoding=utf-8
 
 """""""""""
 " UltiSnips
-let g:UltiSnipsSnippetDirectories=['~/.vim/bundle/vim-snippets/UltiSnips']
+let g:UltiSnipsSnippetDirectories=['~/.vim/plugged/vim-snippets/UltiSnips']
 
 """""""""""
 " Syntastic
@@ -254,7 +258,7 @@ let g:syntastic_check_on_wq = 0
 
 """"""""
 " Ctrl-p
-let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .git

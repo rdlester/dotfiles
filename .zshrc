@@ -102,7 +102,7 @@ alias md="mkdir -p"
 alias mkdir="mkdir -p"
 alias rd="rmdir"
 
-powerline-daemon -q && powerline-daemon -k && powerline-daemon -q
+powerline-daemon -q
 . $(brew --prefix)/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 
 unalias run-help

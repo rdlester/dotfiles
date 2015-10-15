@@ -85,6 +85,7 @@ export GIT_EDITOR="vim"
 
 alias zshrc="vim ~/.zshrc"
 alias reload="source ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
 
 alias bup="brew update; brew upgrade --all; vim +PlugUpgrade +PlugUpdate"
 

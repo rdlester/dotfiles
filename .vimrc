@@ -38,7 +38,6 @@ function! BuildYCM(info)
   endif
 endfunction
 Plug 'Valloric/YouCompleteMe', {'do': function('BuildYCM')}
-Plug 'marijnh/tern_for_vim', {'do': 'npm install; npm update'}
 Plug 'eagletmt/neco-ghc'
 Plug 'scrooloose/syntastic'
 
@@ -58,8 +57,8 @@ Plug 'matchit.zip'
 Plug 'terryma/vim-multiple-cursors'
 
 " file search / opening
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'JazzCore/ctrlp-cmatcher', {'do': 'export CFLAGS=-Qunused-arguments; export CPPFLAGS=-Qunused-arguments; ./install.sh'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'sjl/gundo.vim'
 Plug 'jeetsukumaran/vim-buffergator'
@@ -153,11 +152,15 @@ noremap <Leader>u :GundoToggle<CR>
 noremap <Leader>a :Ag<Space>
 noremap <Leader>c :copen<CR>
 noremap <Leader>b :MBEToggle<CR>
-noremap <Leader>p :CtrlPBuffer<CR>
 
 " fireplace
 noremap <Leader>e :Eval<CR>
 noremap <Leader>E :%Eval<CR>
+
+" FZF
+noremap <C-p> :Files<CR>
+nnoremap <C-f> :Lines<CR>
+noremap <Leader>p :Buffers<CR>
 
 " plugin binding ref:
 " vim-multiple-cursors - <C-n>
@@ -256,19 +259,9 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-""""""""
-" Ctrl-p
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch'}
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore .hg
-      \ --ignore .DS_Store
-      \ --ignore "**/*.pyc"
-      \ --ignore .git5_specs
-      \ --ignore review
-      \ -g ""'
+"""""
+" FZF
+let g:fzf_layout = { 'down': '~25%' }
 
 """""""""""""
 " Investigate

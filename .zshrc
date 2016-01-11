@@ -5,7 +5,7 @@ export ZSH=/Users/rlester/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,6 +53,7 @@ plugins=(git cabal github lein pip python brew osx autojump)
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
+source ~/.comp_bash_profile
 
 source $ZSH/oh-my-zsh.sh
 
@@ -65,8 +66,8 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR="vim"
-export GIT_EDITOR="vim"
+export EDITOR="nvim"
+export GIT_EDITOR="nvim"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -83,11 +84,10 @@ export GIT_EDITOR="vim"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias zshrc="vim ~/.zshrc"
+alias zshrc="nvim ~/.zshrc"
 alias reload="source ~/.zshrc"
-alias vimrc="vim ~/.vimrc"
 
-alias bup="brew update; brew upgrade --all; vim +PlugUpgrade +PlugUpdate"
+alias bup="brew update; brew upgrade --all; nvim +PlugUpgrade +PlugUpdate"
 
 alias la="ls -AF"
 alias ll="ls -l"
@@ -103,11 +103,15 @@ alias md="mkdir -p"
 alias mkdir="mkdir -p"
 alias rd="rmdir"
 
-powerline-daemon -q
-. $(brew --prefix)/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+# powerline-daemon -q && powerline-daemon -k && powerline-daemon -q
+# . $(brew --prefix)/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 
-unalias run-help
 autoload run-help
 HELPDIR=$(brew --prefix)/share/zsh/help
 
-source ~/.comp_bash_profile
+eval $(thefuck --alias)
+
+source /Users/rlester/brew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -g ""'

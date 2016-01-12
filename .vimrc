@@ -83,9 +83,9 @@ Plug 'b4winckler/vim-objc', {'for': ['objc', 'objcpp']}
 Plug 'mattn/emmet-vim'
 
 " haskell
-Plug 'raichoo/haskell-vim', {'for': 'haskell'}
-Plug 'bitc/vim-hdevtools', {'for': 'haskell'}
-Plug 'bitc/lushtags', {'for': 'haskell'}
+Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
+Plug 'bitc/vim-hdevtools', {'for': 'haskell', 'do': 'stack install hdevtools'}
+Plug 'eagletmt/neco-ghc', {'for': 'haskell', 'do': 'stack install ghc-mod'}
 Plug 'enomsg/vim-haskellConcealPlus', {'for': 'haskell'}
 
 " clojure

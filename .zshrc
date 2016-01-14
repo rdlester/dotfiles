@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/rlester/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -103,15 +103,12 @@ alias md="mkdir -p"
 alias mkdir="mkdir -p"
 alias rd="rmdir"
 
-# powerline-daemon -q && powerline-daemon -k && powerline-daemon -q
-# . $(brew --prefix)/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
-
 autoload run-help
 HELPDIR=$(brew --prefix)/share/zsh/help
 
 eval $(thefuck --alias)
 
-source /Users/rlester/brew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'

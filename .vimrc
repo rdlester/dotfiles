@@ -14,7 +14,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Utilities
 Plug 'kana/vim-operator-user'

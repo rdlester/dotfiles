@@ -35,7 +35,7 @@ function! BuildYCM(info)
   " - status: 'installed', 'updated', or 'unchanged'
   " - force:  set on PlugInstall! or PlugUpdate!
   if a:info.status == 'installed' || a:info.force
-    !./install.sh --clang-completer
+    !./install.sh --clang-completer --tern-completer
   endif
 endfunction
 Plug 'Valloric/YouCompleteMe', {'do': function('BuildYCM')}

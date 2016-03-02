@@ -122,11 +122,17 @@ inoremap <C-f> <Esc>
 let mapleader=','
 map <Space> <Leader>
 
-" tab navigatin
+" tab navigation
 noremap <C-t><C-t> :tabnew<CR>
 noremap <C-t>j :tabnext<CR>
 noremap <C-t>k :tabprevious<CR>
 noremap <C-t>q :tabclose<CR>
+
+" Split navigation
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " Easymotion bindings
 nmap s <Plug>(easymotion-s2)

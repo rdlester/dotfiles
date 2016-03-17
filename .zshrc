@@ -20,7 +20,9 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "hlohm/mfunc"
 zplug "hchbaw/zce.zsh"
 zplug "hlissner/zsh-autopair"
+
 zplug "marzocchi/zsh-notify"
+export SYS_NOTIFIER="/Users/rlester/brew/bin/terminal-notifier"
 
 zplug "themes/agnoster", from:oh-my-zsh
 

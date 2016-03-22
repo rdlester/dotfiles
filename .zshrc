@@ -2,6 +2,10 @@
 source ~/.comp_bash_profile
 
 # zplug
+[[ -d ~/.zplug ]] || {
+  curl -fLo ~/.zplug/zplug --create-dirs https://git.io/zplug
+  source ~/.zplug/zplug && zplug update --self
+}
 source ~/.zplug/zplug
 
 zplug "b4b4r07/zplug"

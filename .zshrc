@@ -18,8 +18,10 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
 
 zplug "hlohm/mfunc"
-zplug "hchbaw/zce.zsh"
 zplug "hlissner/zsh-autopair"
+
+bindkey "^f" zce
+zplug "hchbaw/zce.zsh"
 
 zplug "marzocchi/zsh-notify"
 export SYS_NOTIFIER="/Users/rlester/brew/bin/terminal-notifier"
@@ -74,7 +76,5 @@ HELPDIR=$(brew --prefix)/share/zsh/help
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
-
-bindkey "^f" zce
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

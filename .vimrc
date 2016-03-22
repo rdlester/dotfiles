@@ -20,6 +20,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Utilities
 Plug 'kana/vim-operator-user'
 Plug 'tpope/vim-abolish'
+Plug 'fweep/vim-zsh-path-completion'
 
 " Color scheme
 Plug 'altercation/vim-colors-solarized'

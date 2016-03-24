@@ -28,7 +28,6 @@ bindkey "^f" zce
 zplug "hchbaw/zce.zsh"
 
 zplug "marzocchi/zsh-notify"
-export SYS_NOTIFIER="/Users/rlester/brew/bin/terminal-notifier"
 
 zplug "themes/agnoster", from:oh-my-zsh
 

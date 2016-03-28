@@ -21,6 +21,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'kana/vim-operator-user'
 Plug 'tpope/vim-abolish'
 Plug 'fweep/vim-zsh-path-completion'
+Plug 'junegunn/vim-peekaboo'
 
 " Color scheme
 Plug 'altercation/vim-colors-solarized'
@@ -48,8 +49,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Motions
-Plug 'Keithbsmiley/investigate.vim'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'tomtom/tcomment_vim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
@@ -63,8 +63,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'sjl/gundo.vim'
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'chrisbra/NrrwRgn'
 Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
 Plug 'vim-scripts/a.vim'
@@ -159,7 +157,6 @@ noremap <Leader>m :TagbarOpenAutoClose<CR>
 noremap <Leader>u :GundoToggle<CR>
 noremap <Leader>a :Ag<Space>
 noremap <Leader>c :copen<CR>
-noremap <Leader>b :MBEToggle<CR>
 
 " fireplace
 noremap <Leader>e :Eval<CR>
@@ -172,7 +169,6 @@ noremap <Leader>p :Buffers<CR>
 
 " plugin binding ref:
 " vim-multiple-cursors - <C-n>
-" buffergator - <Leader>b on buffers, <Leader>t on tabs
 " NrrwRgn - :NR or <Leader>nr in visual mode
 " ag.vim - :Ag
 " surround - ds{remove}, cs{remove}{replace}, ys{motion}{add}, vS
@@ -317,9 +313,9 @@ augroup vimrcEx
   " Also don't do it when the mark is in the first line, that is the default
   " position when opening a file.
   autocmd BufReadPost *
-	\ if line("'\"") > 1 && line("'\"") <= line("$") |
-	\   exe "normal! g`\"" |
-	\ endif
+      \ if line("'\"") > 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
 
 augroup END
 
@@ -329,5 +325,5 @@ augroup END
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-	\ | wincmd p | diffthis
+      \ | wincmd p | diffthis
 endif

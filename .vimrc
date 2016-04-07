@@ -18,10 +18,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Utilities
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'kana/vim-operator-user'
 Plug 'tpope/vim-abolish'
 Plug 'fweep/vim-zsh-path-completion'
 Plug 'junegunn/vim-peekaboo'
+Plug 'benekastah/neomake'
 
 " Color scheme
 Plug 'altercation/vim-colors-solarized'
@@ -72,6 +74,7 @@ Plug 'tpope/vim-obsession'
 
 " editor help
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " C / C++ / Objc
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp', 'objc', 'objcpp']}
@@ -85,8 +88,11 @@ Plug 'mattn/emmet-vim'
 " haskell
 Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
 Plug 'bitc/vim-hdevtools', {'for': 'haskell', 'do': 'stack install hdevtools'}
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', {'for': 'haskell', 'do': 'stack install ghc-mod'}
 Plug 'enomsg/vim-haskellConcealPlus', {'for': 'haskell'}
+Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
+Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 
 " clojure
 Plug 'guns/vim-clojure-static', {'for': 'clojure'}
@@ -278,6 +284,7 @@ autocmd FileType html,css EmmetInstall
 
 """""""""
 " Haskell
+let g:haskellmode_completion_ghc = 0
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
@@ -287,15 +294,39 @@ let g:haskell_conceal_enumerations = 1
 let g:syntastic_haskell_checkers = ['hdevtools', 'hlint']
 let g:necoghc_enable_detailed_browse = 1
 
-function! FindCabalSandboxRoot()
-    return finddir('.cabal-sandbox', './;')
-endfunction
+let g:neomake_haskell_ghc_mod_args = '-g-Wall'
 
-function! FindCabalSandboxRootPackageConf()
-    return glob(FindCabalSandboxRoot().'/*-packages.conf.d')
-endfunction
-
-let g:syntastic_haskell_hdevtools_args = '-g-ilib -g-isrc -g-i. -g-idist/build/autogen -g-Wall -g-package-conf='.FindCabalSandboxRootPackageConf()
+let g:tagbar_type_haskell = {
+    \ 'ctagsbin'  : 'hasktags',
+    \ 'ctagsargs' : '-x -c -o-',
+    \ 'kinds'     : [
+        \  'm:modules:0:1',
+        \  'd:data: 0:1',
+        \  'd_gadt: data gadt:0:1',
+        \  't:type names:0:1',
+        \  'nt:new types:0:1',
+        \  'c:classes:0:1',
+        \  'cons:constructors:1:1',
+        \  'c_gadt:constructor gadt:1:1',
+        \  'c_a:constructor accessors:1:1',
+        \  'ft:function types:1:1',
+        \  'fi:function implementations:0:1',
+        \  'o:others:0:1'
+    \ ],
+    \ 'sro'        : '.',
+    \ 'kind2scope' : {
+        \ 'm' : 'module',
+        \ 'c' : 'class',
+        \ 'd' : 'data',
+        \ 't' : 'type'
+    \ },
+    \ 'scope2kind' : {
+        \ 'module' : 'm',
+        \ 'class'  : 'c',
+        \ 'data'   : 'd',
+        \ 'type'   : 't'
+    \ }
+\ }
 
 """""""
 " Eclim

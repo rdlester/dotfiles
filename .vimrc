@@ -24,6 +24,7 @@ Plug 'tpope/vim-abolish'
 Plug 'fweep/vim-zsh-path-completion'
 Plug 'junegunn/vim-peekaboo'
 Plug 'benekastah/neomake'
+Plug 'gelguy/Cmd2.vim'
 
 " Color scheme
 Plug 'altercation/vim-colors-solarized'
@@ -141,11 +142,15 @@ nnoremap <C-l> <C-w>l
 
 " Easymotion bindings
 nmap s <Plug>(easymotion-s2)
-map / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
 set nohlsearch " EasyMotion search has better highlighting
+
+" Cmd2
+nmap : :<F12>
+nmap / /<F12>
+cmap <F12> <Plug>(Cmd2Suggest)
 
 " Configure YCM to play nice with Ultisnips
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']

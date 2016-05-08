@@ -126,7 +126,6 @@ filetype plugin indent on
 
 inoremap <C-f> <Esc>
 let mapleader=','
-map <Space> <Leader>
 
 " tab navigation
 noremap <C-t><C-t> :tabnew<CR>
@@ -155,6 +154,7 @@ cmap <F12> <Plug>(Cmd2Suggest)
 " Configure YCM to play nice with Ultisnips
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_key_invoke_completion = '<C-o>'
 
 let g:UltiSnipsExpandTrigger = '<Tab>'
 let g:UltiSnipsJumpForwardTrigger = '<Tab>'

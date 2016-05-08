@@ -18,8 +18,7 @@ zplug "plugins/npm", from:oh-my-zsh
 zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/python", from:oh-my-zsh
 
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting"
+zplug "Tarrasch/zsh-autoenv"
 
 zplug "hlohm/mfunc"
 zplug "hlissner/zsh-autopair"
@@ -30,6 +29,9 @@ zplug "hchbaw/zce.zsh"
 zplug "marzocchi/zsh-notify"
 
 zplug "themes/agnoster", from:oh-my-zsh
+
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-completions"
 
 if ! zplug check; then
     printf "Install? [y/N]: "

@@ -42,6 +42,33 @@ fi
 zplug load
 
 autoload -U compinit && compinit
+autoload run-help
+
+unsetopt cdablevars
+setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
+setopt ALWAYS_TO_END       # Move cursor to the end of a completed word.
+setopt PATH_DIRS           # Perform path search even on command names with slashes.
+setopt AUTO_MENU           # Show completion menu on a successive tab press.
+setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
+setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a trailing slash.
+unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
+unsetopt FLOW_CONTROL      # Disable start/stop characters in shell editor
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case-insensitive matching
+
+setopt AUTOCD
+setopt autopushd pushdignoredups PUSHD_SILENT PUSHD_TO_HOME
+setopt AUTO_NAME_DIRS
+
+setopt CORRECT
+
+setopt extendedglob
+setopt GLOBDOTS
+setopt NO_CASE_GLOB
+
+set HISTFILE="~/.zshhistory"
+set SAVEHIST=5000
+set HISTSIZE=5000
+setopt append_history share_history histignorealldups HIST_REDUCE_BLANKS HIST_NO_STORE extendedhistory
 
 export EDITOR="nvim"
 export GIT_EDITOR="nvim"

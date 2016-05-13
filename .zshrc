@@ -1,6 +1,9 @@
 # ensure PATH is set
 source ~/.comp_bash_profile
 
+# autoload compinit before zplug to ensure completion plugins work
+autoload -U compinit && compinit
+
 # zplug
 [[ -d ~/.zplug ]] || {
   curl -fLo ~/.zplug/zplug --create-dirs https://git.io/zplug
@@ -28,6 +31,7 @@ zplug "hchbaw/zce.zsh"
 
 zplug "marzocchi/zsh-notify"
 
+setopt PROMPT_SUBST
 zplug "themes/agnoster", from:oh-my-zsh
 
 zplug "zsh-users/zsh-syntax-highlighting"
@@ -41,7 +45,6 @@ if ! zplug check; then
 fi
 zplug load
 
-autoload -U compinit && compinit
 autoload run-help
 
 unsetopt cdablevars

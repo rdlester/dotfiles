@@ -68,10 +68,17 @@ setopt extendedglob
 setopt GLOBDOTS
 setopt NO_CASE_GLOB
 
-set HISTFILE="~/.zshhistory"
-set SAVEHIST=5000
-set HISTSIZE=5000
-setopt append_history share_history histignorealldups HIST_REDUCE_BLANKS HIST_NO_STORE extendedhistory
+HISTFILE="~/.zshhistory"
+SAVEHIST=5000
+HISTSIZE=5000
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+setopt share_history
 
 export EDITOR="nvim"
 export GIT_EDITOR="nvim"

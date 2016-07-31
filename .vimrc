@@ -25,6 +25,7 @@ Plug 'fweep/vim-zsh-path-completion'
 Plug 'junegunn/vim-peekaboo'
 Plug 'benekastah/neomake'
 Plug 'gelguy/Cmd2.vim'
+Plug 'vim-scripts/argtextobj.vim'
 
 " Color scheme
 Plug 'altercation/vim-colors-solarized'

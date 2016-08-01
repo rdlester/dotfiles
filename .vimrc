@@ -142,9 +142,6 @@ nnoremap <C-l> <C-w>l
 
 " Easymotion bindings
 nmap s <Plug>(easymotion-s2)
-omap / <Plug>(easymotion-tn)
-map n <Plug>(easymotion-next)
-map N <Plug>(easymotion-prev)
 set nohlsearch " EasyMotion search has better highlighting
 
 " Cmd2

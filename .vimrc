@@ -115,6 +115,9 @@ Plug 'jdevera/vim-protobuf-syntax'
 " CSV
 Plug 'chrisbra/csv.vim'
 
+" Supercollider
+Plug 'sbl/scvim'
+
 " required for vundle
 call plug#end()
 filetype plugin indent on

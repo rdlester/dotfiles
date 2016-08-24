@@ -25,7 +25,7 @@ Plug 'fweep/vim-zsh-path-completion'
 Plug 'junegunn/vim-peekaboo'
 Plug 'benekastah/neomake'
 Plug 'gelguy/Cmd2.vim'
-Plug 'vim-scripts/argtextobj.vim'
+Plug 'libclang-vim/libclang-vim', { 'do': './autogen.sh && make' }
 
 " Color scheme
 Plug 'altercation/vim-colors-solarized'
@@ -61,6 +61,24 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'matchit.zip'
 Plug 'terryma/vim-multiple-cursors'
+
+" text objects
+Plug 'wellle/targets.vim'  " a for argument
+Plug 'bkad/CamelCaseMotion'  " <Leader>w object, <Leader>w/b/e movement
+Plug 'kana/vim-textobj-user' " util
+      \ | Plug 'glts/vim-textobj-comment'  " c for comment
+      \ | Plug 'rhysd/vim-textobj-continuous-line'  " v for continuous line (including \s)
+      \ | Plug 'gilligan/textobj-gitgutter'  " h for changed hunk
+      \ | Plug 'glts/vim-textobj-indblock'  " o for selecting whitespace prior to chunk of lines
+      \ | Plug 'kana/vim-textobj-indent'  " i for selecting chunk of lines with same indentation.
+      \ | Plug 'vimtaku/vim-textobj-keyvalue'  " k / v for key / value
+      \ | Plug 'kana/vim-textobj-lastpat'  " '/' for last search pattern
+      \ | Plug 'mattn/vim-textobj-url'   " u for url
+      \ | Plug 'kana/vim-textobj-function'  " f for function in C, Java, vimscript
+      \ | Plug 'libclang-vim/vim-textobj-function-clang'  " improved f in C
+      \ | Plug 'libclang-vim/vim-textobj-clang'  " ; for source chunk (i; is a single command, a; is definition);
+      \ | Plug 'gilligan/vim-textobj-haskell'  " h for function (conflict with gitgutter?)
+      \ | Plug 'bps/vim-textobj-python'  " f / c for function / class
 
 " file search / opening
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -145,11 +163,11 @@ nnoremap <C-l> <C-w>l
 
 " Easymotion bindings
 nmap s <Plug>(easymotion-s2)
-set nohlsearch " EasyMotion search has better highlighting
 
 " Cmd2
 nmap : :<F12>
 nmap / /<F12>
+nmap ? ?<F12>
 cmap <F12> <Plug>(Cmd2Suggest)
 
 " Configure YCM to play nice with Ultisnips

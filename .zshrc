@@ -26,13 +26,12 @@ zplug "Tarrasch/zsh-autoenv"
 zplug "hlohm/mfunc"
 zplug "hlissner/zsh-autopair"
 
-bindkey "^f" zce
-zplug "hchbaw/zce.zsh"
-
 zplug "marzocchi/zsh-notify"
 
 setopt PROMPT_SUBST
 zplug "themes/agnoster", from:oh-my-zsh
+
+zplug "plugins/vi-mode", from:oh-my-zsh
 
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-completions"
@@ -45,7 +44,7 @@ if ! zplug check; then
 fi
 zplug load
 
-autoload run-help
+bindkey "^f" vi-cmd-mode
 
 unsetopt cdablevars
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
@@ -68,7 +67,7 @@ setopt extendedglob
 setopt GLOBDOTS
 setopt NO_CASE_GLOB
 
-HISTFILE="~/.zshhistory"
+HISTFILE="${HOME}/.zshhistory"
 SAVEHIST=5000
 HISTSIZE=5000
 setopt append_history
@@ -113,10 +112,10 @@ alias LL="2>&1 | less"
 alias NE="2>/dev/null"
 alias NUL=">/dev/null 2>&1"
 
-autoload run-help
+autoload -U run-help
 HELPDIR=$(brew --prefix)/share/zsh/help
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND="ag -g \"\""
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

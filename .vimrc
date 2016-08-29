@@ -352,10 +352,6 @@ let g:tagbar_type_haskell = {
     \ }
 \ }
 
-"""""""
-" Eclim
-let g:EclimCompletionMethod = 'omnifunc'
-
 """"""""""""""
 " AUTOCOMMANDS
 

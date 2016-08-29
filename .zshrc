@@ -6,12 +6,10 @@ autoload -U compinit && compinit
 
 # zplug
 [[ -d ~/.zplug ]] || {
-  curl -fLo ~/.zplug/zplug --create-dirs https://git.io/zplug
-  source ~/.zplug/zplug && zplug update --self
+  curl -sL zplug.sh/installer | zsh
 }
-source ~/.zplug/zplug
+source ~/.zplug/init.zsh
 
-zplug "b4b4r07/zplug"
 
 zplug "plugins/autojump", from:oh-my-zsh
 zplug "plugins/thefuck", from:oh-my-zsh

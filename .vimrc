@@ -26,6 +26,10 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'benekastah/neomake'
 Plug 'gelguy/Cmd2.vim'
 Plug 'libclang-vim/libclang-vim', { 'do': './autogen.sh && make' }
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-eunuch'
+Plug 'pelodelfuego/vim-swoop' " <Leader>l / <Leader>ml / :Swoop <pattern>
+Plug 'hecal3/vim-leader-guide'
 
 " Color scheme
 Plug 'altercation/vim-colors-solarized'

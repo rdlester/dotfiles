@@ -284,7 +284,8 @@ set encoding=utf-8
 
 """""""""""
 " UltiSnips
-let g:UltiSnipsSnippetDirectories=['~/.vim/plugged/vim-snippets/UltiSnips']
+let g:UltiSnipsSnippetsDir = "~/.vim-snips"
+let g:UltiSnipsEditSplit = "context"
 
 """""""""""
 " Syntastic

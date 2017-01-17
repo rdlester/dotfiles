@@ -10,6 +10,7 @@ autoload -U compinit && compinit
 }
 source ~/.zplug/init.zsh
 
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 zplug "plugins/autojump", from:oh-my-zsh
 zplug "plugins/thefuck", from:oh-my-zsh
@@ -27,7 +28,7 @@ zplug "hlissner/zsh-autopair"
 zplug "marzocchi/zsh-notify"
 
 setopt PROMPT_SUBST
-zplug "themes/agnoster", from:oh-my-zsh
+zplug "themes/agnoster", from:oh-my-zsh, as:theme
 
 zplug "plugins/vi-mode", from:oh-my-zsh
 

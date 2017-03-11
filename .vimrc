@@ -21,21 +21,21 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'kana/vim-operator-user'
 Plug 'tpope/vim-abolish'
-Plug 'fweep/vim-zsh-path-completion'
+" Plug 'fweep/vim-zsh-path-completion'
 Plug 'junegunn/vim-peekaboo'
-Plug 'benekastah/neomake'
+" Plug 'benekastah/neomake'
 Plug 'gelguy/Cmd2.vim'
-Plug 'libclang-vim/libclang-vim', { 'do': './autogen.sh && make' }
+" Plug 'libclang-vim/libclang-vim', { 'do': './autogen.sh && make' }
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
-Plug 'pelodelfuego/vim-swoop' " <Leader>l / <Leader>ml / :Swoop <pattern>
-Plug 'hecal3/vim-leader-guide'
+" Plug 'pelodelfuego/vim-swoop' " <Leader>l / <Leader>ml / :Swoop <pattern>
+" Plug 'hecal3/vim-leader-guide'
 
 " Color scheme
 Plug 'altercation/vim-colors-solarized'
 
 " git
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " Completion
@@ -45,11 +45,11 @@ function! BuildYCM(info)
   " - status: 'installed', 'updated', or 'unchanged'
   " - force:  set on PlugInstall! or PlugUpdate!
   if a:info.status == 'installed' || a:info.force
-    !./install.sh --clang-completer --tern-completer
+    !python3 ./install.py --tern-completer
   endif
 endfunction
 Plug 'Valloric/YouCompleteMe', {'do': function('BuildYCM')}
-Plug 'eagletmt/neco-ghc'
+" Plug 'eagletmt/neco-ghc'
 Plug 'scrooloose/syntastic'
 
 " Snippets
@@ -81,64 +81,64 @@ Plug 'kana/vim-textobj-user' " util
       \ | Plug 'kana/vim-textobj-function'  " f for function in C, Java, vimscript
       \ | Plug 'libclang-vim/vim-textobj-function-clang'  " improved f in C
       \ | Plug 'libclang-vim/vim-textobj-clang'  " ; for source chunk (i; is a single command, a; is definition);
-      \ | Plug 'gilligan/vim-textobj-haskell'  " h for function (conflict with gitgutter?)
+      " \ | Plug 'gilligan/vim-textobj-haskell'  " h for function (conflict with gitgutter?)
       \ | Plug 'bps/vim-textobj-python'  " f / c for function / class
 
 " file search / opening
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'sjl/gundo.vim'
+" Plug 'sjl/gundo.vim'
 Plug 'majutsushi/tagbar'
-Plug 'rking/ag.vim'
+" Plug 'rking/ag.vim'
 Plug 'vim-scripts/a.vim'
 
 " sessions
-Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-obsession'
 
 " editor help
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nathanaelkane/vim-indent-guides'
 
 " C / C++ / Objc
-Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp', 'objc', 'objcpp']}
+" Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp', 'objc', 'objcpp']}
 
 " Objc
-Plug 'b4winckler/vim-objc', {'for': ['objc', 'objcpp']}
+" Plug 'b4winckler/vim-objc', {'for': ['objc', 'objcpp']}
 
 " HTML
 Plug 'mattn/emmet-vim'
 
 " haskell
-Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
-Plug 'bitc/vim-hdevtools', {'for': 'haskell', 'do': 'stack install hdevtools'}
-Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
-Plug 'eagletmt/neco-ghc', {'for': 'haskell', 'do': 'stack install ghc-mod'}
-Plug 'enomsg/vim-haskellConcealPlus', {'for': 'haskell'}
-Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
-Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
+" Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
+" Plug 'bitc/vim-hdevtools', {'for': 'haskell', 'do': 'stack install hdevtools'}
+" Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+" Plug 'eagletmt/neco-ghc', {'for': 'haskell', 'do': 'stack install ghc-mod'}
+" Plug 'enomsg/vim-haskellConcealPlus', {'for': 'haskell'}
+" Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
+" Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 
 " clojure
-Plug 'guns/vim-clojure-static', {'for': 'clojure'}
-Plug 'guns/vim-sexp', {'for': 'clojure'}
-Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
-Plug 'kien/rainbow_parentheses.vim', {'for': 'clojure'}
-Plug 'tpope/vim-fireplace', {'for': 'clojure'} " Remember to set up cider/cider-nrepl in lein
-Plug 'tpope/vim-salve', {'for': 'clojure'}
-Plug 'guns/vim-clojure-highlight', {'for': 'clojure'}
+" Plug 'guns/vim-clojure-static', {'for': 'clojure'}
+" Plug 'guns/vim-sexp', {'for': 'clojure'}
+" Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
+" Plug 'kien/rainbow_parentheses.vim', {'for': 'clojure'}
+" Plug 'tpope/vim-fireplace', {'for': 'clojure'} " Remember to set up cider/cider-nrepl in lein
+" Plug 'tpope/vim-salve', {'for': 'clojure'}
+" Plug 'guns/vim-clojure-highlight', {'for': 'clojure'}
 
 " python
-Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
-Plug 'ivanov/vim-ipython', {'for': 'python'}
+" Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
+" Plug 'ivanov/vim-ipython', {'for': 'python'}
 
 " Protobuf
-Plug 'jdevera/vim-protobuf-syntax'
+" Plug 'jdevera/vim-protobuf-syntax'
 
 " CSV
 Plug 'chrisbra/csv.vim'
 
 " Supercollider
-Plug 'sbl/scvim'
+" Plug 'sbl/scvim'
 
 " required for vundle
 call plug#end()
@@ -220,9 +220,11 @@ noremap <Leader>p :Buffers<CR>
 """"""""""""
 " APPEARANCE
 
-"Change cursor shape on insert / normal.
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"Change cursor shape on insert / normal
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[0 q"
 
 " Colorscheme
 syntax enable

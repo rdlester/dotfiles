@@ -8,18 +8,18 @@ bind "set completion-ignore-case on"
 
 [[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
 
-export THEFUCK_REQUIRE_CONFIRMATION='true'
-alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
+# export THEFUCK_REQUIRE_CONFIRMATION='true'
+# alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 
-powerline-daemon -q
-. $(brew --prefix)/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
+# powerline-daemon -q
+# . $(brew --prefix)/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
 
 export EDITOR="vim"
 export GIT_EDITOR="vim"
 
 alias reload="source ~/.bash_profile"
 
-alias bup="brew update; brew upgrade --all; vim +PlugUpgrade +PlugUpdate"
+alias bup="brew update; vim +PlugUpgrade +PlugUpdate +qa"
 
 alias ls="ls -G"
 alias la="ls -AF"
@@ -44,4 +44,4 @@ alias rd="rmdir"
 
 alias _="sudo"
 
-alias py="python3 -m"
+# alias py="python3 -m"

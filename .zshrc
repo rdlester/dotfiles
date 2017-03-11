@@ -2,30 +2,30 @@
 source ~/.comp_bash_profile
 
 # autoload compinit before zplug to ensure completion plugins work
-autoload -U compinit && compinit
+# autoload -U compinit && compinit
 
 # zplug
-[[ -d ~/.zplug ]] || {
-  curl -sL zplug.sh/installer | zsh
-}
+# [[ -d ~/.zplug ]] || {
+#   curl -sL zplug.sh/installer | zsh
+# }
 source ~/.zplug/init.zsh
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 zplug "plugins/autojump", from:oh-my-zsh
-zplug "plugins/thefuck", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/gitfast", from:oh-my-zsh
-zplug "plugins/npm", from:oh-my-zsh
-zplug "plugins/pip", from:oh-my-zsh
-zplug "plugins/python", from:oh-my-zsh
+# zplug "plugins/thefuck", from:oh-my-zsh
+# zplug "plugins/git", from:oh-my-zsh
+# zplug "plugins/gitfast", from:oh-my-zsh
+# zplug "plugins/npm", from:oh-my-zsh
+# zplug "plugins/pip", from:oh-my-zsh
+# zplug "plugins/python", from:oh-my-zsh
 
 zplug "Tarrasch/zsh-autoenv"
 
-zplug "hlohm/mfunc"
+# zplug "hlohm/mfunc"
 zplug "hlissner/zsh-autopair"
 
-zplug "marzocchi/zsh-notify"
+# zplug "marzocchi/zsh-notify"
 
 setopt PROMPT_SUBST
 zplug "themes/agnoster", from:oh-my-zsh, as:theme
@@ -35,12 +35,6 @@ zplug "plugins/vi-mode", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-completions"
 
-if ! zplug check; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
 zplug load
 
 bindkey "^f" vi-cmd-mode
@@ -111,10 +105,10 @@ alias LL="2>&1 | less"
 alias NE="2>/dev/null"
 alias NUL=">/dev/null 2>&1"
 
-autoload -U run-help
-HELPDIR=$(brew --prefix)/share/zsh/help
+# autoload -U run-help
+# HELPDIR=$(brew --prefix)/share/zsh/help
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="ag -g \"\""
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

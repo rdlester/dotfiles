@@ -63,7 +63,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
-Plug 'matchit.zip'
+Plug 'vim-scripts/matchit.zip'
 Plug 'terryma/vim-multiple-cursors'
 
 " text objects

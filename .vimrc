@@ -228,9 +228,7 @@ let &t_te.="\e[0 q"
 
 " Colorscheme
 syntax enable
-set background=light
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
+set background=dark
 set t_Co=256
 colorscheme solarized
 
